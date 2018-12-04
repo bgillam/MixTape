@@ -45,7 +45,15 @@ public class MixTape
 {
     final JFXPanel fxPanel = new JFXPanel(); //needed for player to not throw thread error
     final String playIcon = "jpegs/play.jpg"; 
+    final String editIcon = "jpegs/editbutton.jpg";
     final String pauseIcon = "jpegs/pause.jpg"; 
+    final String newIcon = "jpegs/cassette.jpg";
+    final String menuIcon ="jpegs/menubutton.jpg";
+    final String songsIcon = "jpegs/songlistButton.jpg";
+    final String backIcon = "jpegs/back.jpg";
+    final String forwardIcon = "jpegs/forward.jpg";
+    
+    
     
     //state variables that need to be saved when a copy is made
     private ArrayList<Song> songs; //list of songs
@@ -301,8 +309,8 @@ public class MixTape
     }
     
     private void playPause(){
-       if (paused) play(); 
-       else pause();
+       if (paused) { setButtonIcon(playButton, playIcon); play(); setButtonIcon(playButton, playIcon); } 
+       else { setButtonIcon(playButton, pauseIcon); pause(); }
     }
        
     private void previous(){
@@ -347,13 +355,13 @@ public class MixTape
     //Button methods
     //Button action methods
     private void addButtonIcons(){
-        editButton = setButtonIcon(editButton, "jpegs/editbutton.jpg");
-        newButton = setButtonIcon(newButton, "jpegs/cassette.jpg");
-        menuButton = setButtonIcon(menuButton, "jpegs/menubutton.jpg");
-        songsButton = setButtonIcon(songsButton, "jpegs/songlistButton.jpg");
-        backButton = setButtonIcon(backButton, "jpegs/back.jpg");
+        editButton = setButtonIcon(editButton, editIcon); //"jpegs/editbutton.jpg");
+        newButton = setButtonIcon(newButton, newIcon);
+        menuButton = setButtonIcon(menuButton, menuIcon); //"jpegs/menubutton.jpg");
+        songsButton = setButtonIcon(songsButton, songsIcon); //"jpegs/songlistButton.jpg");
+        backButton = setButtonIcon(backButton, backIcon);  //"jpegs/back.jpg");
         playButton =  setButtonIcon(playButton, playIcon);
-        forwardButton = setButtonIcon(forwardButton, "jpegs/forward.jpg");
+        forwardButton = setButtonIcon(forwardButton, forwardIcon); //"jpegs/forward.jpg");
     }
     
     private ImageIcon scaleBufferedImageToIcon(BufferedImage myPicture, int w, int h){

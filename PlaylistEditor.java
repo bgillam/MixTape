@@ -186,7 +186,7 @@ public class PlaylistEditor extends JDialog
                fileDialog.setMode(FileDialog.LOAD);
                fileDialog.setVisible(true);
                File[] files = fileDialog.getFiles(); //returning 0 length
-               for (File file : files) tape.getSongs().add(new Song(fileDialog.getDirectory()+"\\"+file.getName())); 
+               for (File file : files) tape.getSongs().add(new Song(fileDialog.getDirectory()+"/"+file.getName())); 
                update();
                fileDialog.setVisible(false);
             }
