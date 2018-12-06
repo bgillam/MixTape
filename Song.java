@@ -25,7 +25,7 @@ public class Song
     private JFrame errorFrame = new JFrame("Error");
        
     public static void main(String args[]){
-        String testSongFilePath = "C:\\Users\\Bill\\workspace\\MixTape\\Songs\\04 - Robert Earl Keen - Ride .mp3";
+        String testSongFilePath = "C:/Users/Bill/workspace/MixTape/Songs/04 - Robert Earl Keen - Ride .mp3";
         Song testSong = new Song(testSongFilePath);
         System.out.println("Artist: "+testSong.getArtist());
         System.out.println("Album: "+testSong.getAlbum());
@@ -34,7 +34,7 @@ public class Song
         System.out.println("Track: "+testSong.getTrack());
         System.out.println("Genre: "+testSong.getGenre());
         
-        testSongFilePath = "C:\\Users\\Bill\\workspace\\MixTape\\Songs\\06 - Old Crow Medicine Show - Wagon Wheel .mp3";
+        testSongFilePath = "C:/Users/Bill/workspace/MixTape/Songs/06 - Old Crow Medicine Show - Wagon Wheel .mp3";
         testSong = new Song(testSongFilePath);
         System.out.println("Artist: "+testSong.getArtist());
         System.out.println("Album: "+testSong.getAlbum());

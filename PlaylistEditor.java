@@ -51,8 +51,7 @@ public class PlaylistEditor extends JDialog
        tape = thisTape;
        fileDialog = new FileDialog(this,"title");
        fileDialog.setVisible(false);
-       //me = this;
-       //oldList = tape.getSongs();get
+      
        setBounds(100, 100, 900, 300);
        getContentPane().setLayout(new BorderLayout());
        getContentPane().add(songlist, BorderLayout.CENTER);
@@ -181,12 +180,20 @@ public class PlaylistEditor extends JDialog
         
         addButton.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent e){
+               String fileDir = "";
+               String filePath = "";
                fileDialog.setFile("*.mp3");
                fileDialog.setMultipleMode(true);
                fileDialog.setMode(FileDialog.LOAD);
                fileDialog.setVisible(true);
                File[] files = fileDialog.getFiles(); //returning 0 length
-               for (File file : files) tape.getSongs().add(new Song(fileDialog.getDirectory()+"/"+file.getName())); 
+               for (File file : files) { 
+                   fileDir = fileDialog.getDirectory();
+                   fileDir = fileDir.replaceAll("\\\\","/");
+                   if (!(fileDir.substring(fileDir.length() - 1).equals("/"))) fileDir = fileDir+"/";
+                   filePath = fileDir+file.getName();
+                   tape.getSongs().add(new Song(filePath)); 
+                }
                update();
                fileDialog.setVisible(false);
             }
